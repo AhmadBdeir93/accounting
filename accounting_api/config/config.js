@@ -24,7 +24,9 @@ const config = {
     origin: [
       'http://localhost:3000',
       'http://localhost:8080',
-      'http://accounting_front'
+      'http://accounting_front',
+      'http://samo.gsoftci.com:8080',
+      'https://samo.gsoftci.com:8080',
     ],
     credentials: true
   },

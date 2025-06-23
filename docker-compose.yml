@@ -1,5 +1,5 @@
 services:
-  mariadb1:
+  mariadb_compta_simple:
     image: mariadb:latest
     container_name: compta_simple
     environment:
@@ -18,14 +18,14 @@ services:
     container_name: accounting_api
     environment:
       - NODE_ENV=production
-      - DB_HOST=mariadb1
+      - DB_HOST=mariadb_compta_simple
       - DB_USER=ahmad
       - DB_PASSWORD=password
       - DB_NAME=compta_simple
     ports:
       - "3001:3001"
     depends_on:
-      - mariadb1
+      - mariadb_compta_simple
     restart: unless-stopped
 
   accounting_front:

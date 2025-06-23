@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const config = require('./config/config');
-const { testConnection, initializeDatabase } = require('./config/database');
+const { testConnection } = require('./config/database');
 const routes = require('./routes');
 
 const app = express();
@@ -35,7 +35,7 @@ const startServer = async () => {
     }
 
     // Initialize database tables
-    await initializeDatabase();
+   
 
     // Start server
     app.listen(config.port, () => {

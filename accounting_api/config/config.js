@@ -25,8 +25,8 @@ const config = {
       'http://localhost:3000',
       'http://localhost:8080',
       'http://accounting_front',
-      'http://samo.gsoftci.com:8080',
-      'https://samo.gsoftci.com:8080',
+      'http://accounting.gsoftci.com:8080',
+      'https://accounting.gsoftci.com:8080',
     ],
     credentials: true
   },

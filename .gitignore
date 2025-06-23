@@ -1,0 +1,9 @@
+# Node.js backend
+accounting_api/node_modules/
+
+
+# React frontend
+accounting_front/node_modules/
+
+
+data/

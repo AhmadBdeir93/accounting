@@ -1,0 +1,38 @@
+services:
+  mariadb1:
+    image: mariadb:latest
+    container_name: compta_simple
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_USER: ahmad
+      MARIADB_PASSWORD: password
+      MARIADB_DATABASE: compta_simple
+    ports:
+      - "5306:3306"  # Évite le conflit avec votre MariaDB local
+    volumes:
+      - "./data/compta_simple:/var/lib/mysql"
+    restart: unless-stopped
+
+  accounting_api:
+    build: ./accounting_api
+    container_name: accounting_api
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=mariadb1
+      - DB_USER=ahmad
+      - DB_PASSWORD=password
+      - DB_NAME=compta_simple
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mariadb1
+    restart: unless-stopped
+
+  accounting_front:
+    build: ./accounting_front
+    container_name: accounting_front
+    ports:
+      - "8080:80"
+    depends_on:
+      - accounting_api
+    restart: unless-stopped
